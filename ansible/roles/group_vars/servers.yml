@@ -1,0 +1,14 @@
+helloadm: |
+  Хорошего дня тебе, админ! Береги себя, много не работай.
+  Ты зашел на хост: "{{ ansible_facts['hostname'] }}"
+  IP хоста: "{{ ansible_facts['default_ipv4']['address'] }}"
+
+helloadmin: |
+  Хост: "{{ ansible_facts['hostname'] }}" <br>
+  IP: "{{ ansible_facts['default_ipv4']['address'] }}" <br>
+  CPU: "{{ ansible_facts['processor'] }}" <br>
+  RAM: "{{ ansible_facts['memtotal_mb'] }}" Mb <br>
+  HDD: "{{ ansible_facts['devices']['dm-0']['size'] }}" <br>
+  
+
+  

@@ -1,0 +1,24 @@
+---
+#- name: "Debug"
+#  debug:
+#    msg: "{{ ansible_facts['hostname'] }}"
+#    msg: "{{ ansible_facts['default_ipv4']['address'] }}"
+#    msg: "{{ ansible_facts['processor'] }}"
+#    msg: "{{ ansible_facts['memtotal_mb'] }} Mb"
+#    msg: "{{ ansible_facts['devices']['dm-0']['size'] }}"
+  - name: "Install Apache2"
+    yum:
+      name: httpd
+      state: latest
+  - name: "Start and enable Apache2 daemon"
+    systemd:
+      name: httpd.service
+      state: started
+      enabled: yes
+      masked: no
+  - name: "Change motd"
+    blockinfile:
+      path: /var/www/html/index.html
+      marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+      insertafter: "<body>"
+      block: "{{ helloadmin }}"

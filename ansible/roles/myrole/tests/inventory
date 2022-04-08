@@ -1,0 +1,4 @@
+[servers]
+10.0.2.5 ansible_user=tech_user ansible_ssh_pass=tech_user
+10.0.2.7 ansible_user=tech_user ansible_ssh_pass=tech_user
+

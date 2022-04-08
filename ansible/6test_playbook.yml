@@ -1,0 +1,8 @@
+- hosts: 51.250.26.241
+  remote_user: andy
+  tasks:
+    - service:
+        name: nginx
+        state: started
+      become: yes
+      become_method: sudo

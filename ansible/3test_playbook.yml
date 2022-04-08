@@ -1,0 +1,9 @@
+- hosts: servers
+  become: yes
+  tasks:
+  - name: "Change motd"
+    blockinfile:
+      path: /etc/motd
+      marker: "{mark}-------------------------------"
+      block: "{{ helloadm }}"
+      

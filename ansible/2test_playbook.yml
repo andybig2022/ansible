@@ -1,0 +1,14 @@
+---
+- hosts: servers
+  become: yes
+  tasks:
+  - name: "Install tuned"
+    yum:
+      name: tuned
+      state: latest
+  - name: "Start and enable tuned daemon"
+    systemd:
+      name: tuned.service
+      state: started
+      enabled: yes
+      masked: no

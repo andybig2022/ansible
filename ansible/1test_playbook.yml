@@ -1,0 +1,16 @@
+---
+- hosts: servers
+  tasks:
+  - name: "Create directory"
+    file:
+      path: /tmp/test_ansible 
+      state: directory
+  - name: "Get archive"
+    get_url:
+      url: https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz
+      dest: /tmp/test_ansible/
+  - name: "Unpack archive"
+    unarchive:
+      src: /tmp/test_ansible/kafka_2.13-3.1.0.tgz
+      dest: /tmp/test_ansible
+      remote_src: yes
